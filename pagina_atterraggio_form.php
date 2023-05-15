@@ -3,6 +3,8 @@
 $text_area = $_GET['text_area'];
 $parola = $_GET['name'];
 
+$text_corretto = str_replace($parola, '***', $text_area);
+
 ?>
 
 <!DOCTYPE html>
@@ -20,12 +22,13 @@ $parola = $_GET['name'];
   <div class="container my-5">
     <h2>Questo è il testo inserito:</h2>
     <p><?php echo $text_area ?></p>
-    <h4>Il testo che hai inserito è lungo <?php echo strlen($text_area)?> parole</h4>
+    <span>Il testo che hai inserito è lungo <strong><?php echo strlen($text_area)?></strong> parole.</span>
 
-    <h3>La parola che vuoi censurare è:</h3>
-    <span><?php echo $parola ?></span>
+    <h3 class="pt-4">La parola che vuoi censurare è: "<?php echo $parola ?>"</h3>
+    <p>Il testo corretto è: <?php echo $text_corretto ?></p>
+    <span>Il testo corretto è lungo: <strong><?php echo strlen($text_corretto)?></strong> parole.</span>
+
   </div>
 
-  
 </body>
 </html>
